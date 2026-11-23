@@ -7,3 +7,8 @@ venv/
 .env
 .DS_Store
 Thumbs.db
+
+# Source database is hosted separately; keep it out of GitHub.
+olist.db
+# Downloaded project archives
+*.zip
