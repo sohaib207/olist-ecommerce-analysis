@@ -84,7 +84,7 @@ The notebook was executed against the supplied SQLite database in a clean workin
 - SQL cross-check: 96,478 delivered orders, R$13,221,498.11 in product revenue, and R$137.04 average order value.
 - Review cross-check: 7,661 late reviewed orders averaged 2.57/5; 88,163 on-time reviewed orders averaged 4.29/5.
 - The SQL checks use an in-memory SQLite database, leaving the original `olist.db` unchanged.
-- The PBIX package was checked for archive integrity and contains three pages: Overview, Delivery, and Sellers. Relationship behaviour and interactive slicers still need final verification in Power BI Desktop.
+- The PBIX package was checked for archive integrity and contains three pages: Overview, Delivery, and Sellers (20 visuals in total). The exported keys support a one-to-many model: `orders_fact.order_id` is unique, and every `items_fact.order_id` exists in `orders_fact`. The actual PBIX relationship behaviour and interactive slicers still need final verification in Power BI Desktop.
 
 ## Run locally
 
