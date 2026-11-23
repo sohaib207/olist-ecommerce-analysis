@@ -21,8 +21,19 @@ if "%REPO_URL%"=="" (
 if not exist ".git" git init
 if errorlevel 1 goto failed
 
-git config user.name "Sohaib Samy Hanfey"
-git config user.email "sohabsamy13@gmail.com"
+rem Reuse an existing Git identity; ask only if Git has no configured identity.
+git config user.name >nul 2>&1
+if errorlevel 1 (
+  set /p "GIT_NAME=Enter the name for this commit: "
+  if "%GIT_NAME%"=="" goto failed
+  git config user.name "%GIT_NAME%"
+)
+git config user.email >nul 2>&1
+if errorlevel 1 (
+  set /p "GIT_EMAIL=Enter your Git commit email (a GitHub noreply address is fine): "
+  if "%GIT_EMAIL%"=="" goto failed
+  git config user.email "%GIT_EMAIL%"
+)
 
 git remote get-url origin >nul 2>&1
 if errorlevel 1 (
