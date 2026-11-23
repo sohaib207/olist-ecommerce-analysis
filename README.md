@@ -41,8 +41,8 @@ The delivery/review and seller-level relationships are **associations, not proof
 
 | File | Description |
 |---|---|
-| `olist_analysis.ipynb` | Python analysis notebook; reads from the included SQLite database |
-| `olist.db` | SQLite database containing the eight analytical tables |
+| `olist_analysis.ipynb` | Python analysis notebook; reads from the SQLite database downloaded separately |
+| `olist.db` | SQLite database — [download the database ZIP from Google Drive](https://drive.google.com/file/d/1jBK-HqWCnZspD0rD-l5k0R1762SV7-0y/view?usp=sharing), extract it, and place `olist.db` beside the notebook |
 | `olist_dashboard.pbix` | Power BI report |
 | `orders_fact.csv` | Order-level fact table for Power BI |
 | `items_fact.csv` | Order-item-level fact table for Power BI |
@@ -59,14 +59,16 @@ The delivery/review and seller-level relationships are **associations, not proof
 ## Run locally
 
 1. Clone or download this repository.
-2. Install dependencies:
+2. Download the SQLite database ZIP using the Google Drive link in the **Project files** section and extract it.
+3. Place the extracted `olist.db` file in the same folder as `olist_analysis.ipynb`.
+4. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Open `olist_analysis.ipynb` in Jupyter Notebook or JupyterLab.
-4. Run all cells from top to bottom. Keep `olist.db` beside the notebook.
+5. Open `olist_analysis.ipynb` in Jupyter Notebook or JupyterLab.
+6. Run all cells from top to bottom.
 
 The notebook regenerates the summary CSV files and charts in the project folder.
 
