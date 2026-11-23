@@ -15,7 +15,7 @@ An end-to-end e-commerce analytics project using the **Brazilian E-Commerce Publ
 
 | Area | Finding |
 |---|---|
-| Delivered orders | 96,478 orders with a recorded delivered status and usable delivery timestamp |
+| Delivered orders | 96,478 orders with `order_status = delivered`; 96,470 have valid customer-delivery timestamps for delivery analysis |
 | Product revenue | R$13,221,498.11 based on item price; freight is excluded |
 | Average order value | R$137.04, calculated as product revenue divided by delivered orders |
 | Delivery time | 12.56 days on average; median 10.22 days |
@@ -26,7 +26,7 @@ The delivery/review and seller-level relationships are **associations, not proof
 
 ## Additional customer, product, and payment insights
 
-- **Customers:** 93,358 distinct customers placed delivered orders. 90,557 (97.0%) had one delivered order, while 2,801 (3.0%) had at least two. This indicates limited repeat purchasing in the observed dataset; it is not a full retention or cohort analysis.
+- **Customers:** Among delivered orders with valid customer-delivery timestamps, 93,350 distinct customers were observed. 90,549 (97.0%) had one delivered order, while 2,801 (3.0%) had at least two. This indicates limited repeat purchasing in the observed dataset; it is not a full retention or cohort analysis.
 - **Products:** 32,216 distinct products appeared in delivered orders. 17,716 (55.0%) appeared in exactly one `order_items` row. This is a count of order-item records, not distinct orders. The top 322 products by product revenue contributed approximately 24.45% of total product revenue.
 - **Credit-card payments:** Across all payment records and order statuses, 51,338 of 76,795 credit-card payment records (66.9%) used more than one installment. The average was approximately 3.5 installments. This payment analysis is not restricted to delivered orders.
 
@@ -74,6 +74,17 @@ The notebook generates the following charts:
 
 ### Seller delivery performance and review scores
 ![Seller late delivery vs review score](seller_late_vs_score.png)
+
+## Reproducibility and quality checks
+
+The notebook was executed against the supplied SQLite database in a clean working folder. All analysis steps completed without execution errors and regenerated the expected CSV tables and chart files.
+
+- Source database: 99,441 orders; 8 delivered orders have no customer-delivery timestamp.
+- Delivery analysis: 96,470 eligible delivered orders; average delivery time 12.56 days and median 10.22 days.
+- SQL cross-check: 96,478 delivered orders, R$13,221,498.11 in product revenue, and R$137.04 average order value.
+- Review cross-check: 7,661 late reviewed orders averaged 2.57/5; 88,163 on-time reviewed orders averaged 4.29/5.
+- The SQL checks use an in-memory SQLite database, leaving the original `olist.db` unchanged.
+- The PBIX package was checked for archive integrity and contains three pages: Overview, Delivery, and Sellers. Relationship behaviour and interactive slicers still need final verification in Power BI Desktop.
 
 ## Run locally
 
