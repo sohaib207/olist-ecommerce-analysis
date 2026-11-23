@@ -21,6 +21,9 @@ if "%REPO_URL%"=="" (
 if not exist ".git" git init
 if errorlevel 1 goto failed
 
+git config user.name "Sohaib Samy Hanfey"
+git config user.email "sohabsamy13@gmail.com"
+
 git remote get-url origin >nul 2>&1
 if errorlevel 1 (
   git remote add origin "%REPO_URL%"
@@ -35,8 +38,7 @@ if errorlevel 1 goto failed
 git branch -M main
 if errorlevel 1 goto failed
 
-rem Align the local branch with the README already created online,
-rem without deleting the extracted (currently untracked) project files.
+rem Align with the README already created online without deleting extracted project files.
 git reset --mixed FETCH_HEAD
 if errorlevel 1 goto failed
 
