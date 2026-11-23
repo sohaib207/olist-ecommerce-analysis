@@ -56,6 +56,25 @@ The delivery/review and seller-level relationships are **associations, not proof
 | `score_late_vs_ontime.png` | Review-score comparison by delivery status |
 | `seller_late_vs_score.png` | Seller-level late-delivery and review-score relationship |
 
+## Visual results
+
+The notebook generates the following charts:
+
+### Monthly product revenue
+![Monthly product revenue](monthly_revenue.png)
+
+### Top product categories
+![Top product categories](top_categories.png)
+
+### Delivery performance by state
+![Slowest delivery states](slowest_states.png)
+
+### Review scores by delivery timeliness
+![Review scores: late vs on-time](score_late_vs_ontime.png)
+
+### Seller delivery performance and review scores
+![Seller late delivery vs review score](seller_late_vs_score.png)
+
 ## Run locally
 
 1. Clone or download this repository.
