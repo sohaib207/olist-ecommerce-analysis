@@ -42,7 +42,7 @@ The delivery/review and seller-level relationships are **associations, not proof
 | File | Description |
 |---|---|
 | `olist_analysis.ipynb` | Python analysis notebook; reads from the SQLite database downloaded separately |
-| `olist.db` | SQLite database — [download the database ZIP from Google Drive](https://drive.google.com/file/d/1jBK-HqWCnZspD0rD-l5k0R1762SV7-0y/view?usp=sharing), extract it, and place `olist.db` beside the notebook |
+| `olist.db` (external download) | Not stored in this repository. [Download the database ZIP from Google Drive](https://drive.google.com/file/d/1jBK-HqWCnZspD0rD-l5k0R1762SV7-0y/view?usp=sharing), extract it, and place `olist.db` beside the notebook |
 | `olist_dashboard.pbix` | Power BI report |
 | `orders_fact.csv` | Order-level fact table for Power BI |
 | `items_fact.csv` | Order-item-level fact table for Power BI |
